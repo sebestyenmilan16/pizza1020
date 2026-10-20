@@ -8,17 +8,25 @@ import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import About from "./pages/About.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import { Route, Routes } from "react-router";
 
 export default class App extends Component {
   render() {
     return (
-      <Layout>
-        {window.location.pathname == '/' && <Home />}
-        {window.location.pathname == '/pizzas' && <Pizzas />}
-        {window.location.pathname == '/about' && <About />}
-        {window.location.pathname == '/cart' && <Cart />}
-        
-      </Layout>
+      <Routes>
+
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="pizzas" element={<Pizzas />} />
+          <Route path="about" element={<About />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
+
+        </Route>
+
+
+      </Routes>
+
     );
   }
 }
