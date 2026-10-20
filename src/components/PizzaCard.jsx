@@ -10,9 +10,9 @@ export default class PizzaCard extends Component {
 
     return (
       <article className="card">
-        <a href={`/pizzas/${pizza.id}`} className="card-emoji" aria-label={`${pizza.name} details`}>
+        <Link href={`/pizzas/${pizza.id}`} className="card-emoji" aria-label={`${pizza.name} details`}>
           {pizza.emoji}
-        </a>
+        </Link>
         <h3>{pizza.name}</h3>
         <p className="muted">{pizza.ingredients.join(", ")}</p>
         <div className="tags">
